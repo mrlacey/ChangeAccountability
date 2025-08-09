@@ -7,7 +7,8 @@
     "clean": "rimraf dist",
     "watch": "node scripts/build.js --watch",
     "zip": "npm run build && node scripts/zip.js",
-    "dev": "npm run clean && npm run watch"
+    "dev": "npm run clean && npm run watch",
+    "validate": "node scripts/validate.js"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.268",
