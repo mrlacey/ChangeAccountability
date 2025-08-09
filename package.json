@@ -1,0 +1,28 @@
+{
+  "name": "change-accountability",
+  "version": "1.0.0",
+  "description": "Browser extension to enhance GitHub blame pages with PR metadata",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "clean": "rimraf dist",
+    "watch": "node scripts/build.js --watch",
+    "zip": "npm run build && node scripts/zip.js",
+    "dev": "npm run clean && npm run watch"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "esbuild": "^0.19.12",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "browser-extension",
+    "github",
+    "blame",
+    "pr-metadata",
+    "typescript"
+  ],
+  "author": "ChangeAccountability",
+  "license": "MIT",
+  "type": "module"
+}
