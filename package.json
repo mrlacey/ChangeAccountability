@@ -25,5 +25,14 @@
   ],
   "author": "ChangeAccountability",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrlacey/ChangeAccountability.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrlacey/ChangeAccountability/issues"
+  },
+  "homepage": "https://github.com/mrlacey/ChangeAccountability#readme"
 }
