@@ -1,0 +1,142 @@
+/* ChangeAccountability Extension Styles */
+
+/* PR Badge Styling */
+.change-accountability-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.change-accountability-pr-info {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: var(--color-accent-subtle, #ddf4ff);
+  color: var(--color-accent-fg, #0969da);
+  border: 1px solid var(--color-accent-muted, #54aeff);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.change-accountability-pr-info:hover {
+  background: var(--color-accent-emphasis, #0969da);
+  color: var(--color-fg-on-emphasis, #ffffff);
+  border-color: var(--color-accent-emphasis, #0969da);
+}
+
+.change-accountability-merger {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Dark mode support for GitHub's theme */
+[data-color-mode="dark"] .change-accountability-pr-info {
+  background: var(--color-accent-subtle, #0c2d6b);
+  color: var(--color-accent-fg, #58a6ff);
+  border-color: var(--color-accent-muted, #1f6feb);
+}
+
+[data-color-mode="dark"] .change-accountability-pr-info:hover {
+  background: var(--color-accent-emphasis, #1f6feb);
+  color: var(--color-fg-on-emphasis, #ffffff);
+  border-color: var(--color-accent-emphasis, #1f6feb);
+}
+
+/* Integration with GitHub's blame view */
+.js-blame-container .change-accountability-badge {
+  vertical-align: middle;
+}
+
+/* Ensure proper spacing in blame lines */
+td.blame-commit-info .change-accountability-badge {
+  margin-left: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .change-accountability-badge {
+    margin-left: 4px;
+  }
+  
+  .change-accountability-pr-info {
+    padding: 1px 4px;
+    font-size: 10px;
+    gap: 2px;
+  }
+  
+  .change-accountability-merger {
+    display: none; /* Hide merger info on small screens to save space */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .change-accountability-pr-info {
+    border-width: 2px;
+    font-weight: 600;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .change-accountability-pr-info {
+    transition: none;
+  }
+}
+
+/* Animation for new badges appearing */
+@keyframes changeAccountabilityFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.change-accountability-badge {
+  animation: changeAccountabilityFadeIn 0.3s ease-out;
+}
+
+/* Prevent animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .change-accountability-badge {
+    animation: none;
+  }
+}
+
+/* Tooltip styling (if we add custom tooltips in the future) */
+.change-accountability-tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: 8px 12px;
+  background: var(--color-canvas-overlay, #ffffff);
+  border: 1px solid var(--color-border-default, #d0d7de);
+  border-radius: 6px;
+  box-shadow: var(--color-shadow-large, 0 8px 24px rgba(140, 149, 159, 0.2));
+  font-size: 12px;
+  max-width: 300px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.change-accountability-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-color-mode="dark"] .change-accountability-tooltip {
+  background: var(--color-canvas-overlay, #21262d);
+  border-color: var(--color-border-default, #30363d);
+}
