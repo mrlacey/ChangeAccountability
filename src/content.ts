@@ -91,7 +91,7 @@ class GitHubBlameEnhancer {
   }
 
   private extractCommitHash(href: string): string | null {
-    const match = href.match(/\/commit\/([a-f0-9]{40})/);
+    const match = href.match(/\/commit\/([a-f0-9]{7,40})/i);
     return match ? match[1] || null : null;
   }
 
