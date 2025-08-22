@@ -119,12 +119,6 @@ class OptionsManager {
   }
 
   private isValidTokenFormat(token: string): boolean {
-    // GitHub Personal Access Tokens start with specific prefixes
-    return token.startsWith('ghp_') || 
-           token.startsWith('github_pat_') ||
-           token.startsWith('gho_') ||
-           token.startsWith('ghu_') ||
-           token.startsWith('ghs_') ||
     // GitHub Personal Access Tokens have specific prefixes and lengths
     // See: https://github.blog/changelog/2021-03-31-personal-access-token-format-updates/
     const tokenSpecs = [
@@ -135,6 +129,7 @@ class OptionsManager {
       { prefix: 'ghs_', length: 40 },           // server-to-server token
       { prefix: 'ghr_', length: 40 },           // refresh token
     ];
+    
     for (const spec of tokenSpecs) {
       if (token.startsWith(spec.prefix) && token.length === spec.length) {
         return true;
