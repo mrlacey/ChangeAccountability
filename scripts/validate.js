@@ -46,7 +46,7 @@ requiredFiles.forEach(file => {
 try {
   const manifestPath = join(distPath, 'manifest.json');
   if (existsSync(manifestPath)) {
-    const manifestContent = await import(`${process.cwd()}/${manifestPath}`, { assert: { type: 'json' } });
+    const manifestContent = await import(`${process.cwd()}/${manifestPath}`, { with: { type: 'json' } });
     const manifest = manifestContent.default;
     
     console.log('\n📋 Manifest validation:');
