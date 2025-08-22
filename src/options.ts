@@ -125,7 +125,22 @@ class OptionsManager {
            token.startsWith('gho_') ||
            token.startsWith('ghu_') ||
            token.startsWith('ghs_') ||
-           token.startsWith('ghr_');
+    // GitHub Personal Access Tokens have specific prefixes and lengths
+    // See: https://github.blog/changelog/2021-03-31-personal-access-token-format-updates/
+    const tokenSpecs = [
+      { prefix: 'ghp_', length: 40 },           // classic PAT
+      { prefix: 'github_pat_', length: 82 },    // fine-grained PAT
+      { prefix: 'gho_', length: 40 },           // OAuth access token
+      { prefix: 'ghu_', length: 40 },           // user-to-server token
+      { prefix: 'ghs_', length: 40 },           // server-to-server token
+      { prefix: 'ghr_', length: 40 },           // refresh token
+    ];
+    for (const spec of tokenSpecs) {
+      if (token.startsWith(spec.prefix) && token.length === spec.length) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private showStatus(message: string, type: 'success' | 'error' | 'info'): void {
