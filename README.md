@@ -16,15 +16,21 @@ A browser extension that enhances GitHub blame pages by showing Pull Request met
 ### For Development
 
 1. Clone this repository
-2. Install dependencies:
+2. **Install Node.js (if not already installed):**
+   - On Windows, you can use [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) to install Node.js:
+     ```sh
+     winget install OpenJS.NodeJS
+     ```
+   - Alternatively, download from [nodejs.org](https://nodejs.org/)
+3. Install dependencies:
    ```bash
    npm install
    ```
-3. Build the extension:
+4. Build the extension:
    ```bash
    npm run build
    ```
-4. Load in Chrome:
+5. Load in Chrome:
    - Open Chrome and go to `chrome://extensions/`
    - Enable "Developer mode"
    - Click "Load unpacked" and select the `dist/` folder
